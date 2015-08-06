@@ -1,5 +1,6 @@
 package com.sirma.itt.javacourse.intro.task6;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -10,7 +11,7 @@ import org.slf4j.LoggerFactory;
  */
 public class SummingLargeNumbers {
 
-	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(SummingLargeNumbers.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SummingLargeNumbers.class);
 	private int carry = 0;
 
 	/**
@@ -27,27 +28,14 @@ public class SummingLargeNumbers {
 	public StringBuilder calculate(String firstNumber, String secondNumber) {
 		String tempFirstNumber = firstNumber;
 		String tempSecondNumber = secondNumber;
-		/** check for length of numbers */
-
-		if (tempFirstNumber.length() > tempSecondNumber.length()) {
-			StringBuilder numTemp = new StringBuilder();
-			numTemp.append(tempSecondNumber);
-			int difference = tempFirstNumber.length() - tempSecondNumber.length();
-			numTemp = equalizeNumbers(numTemp, difference);
-
-			tempSecondNumber = numTemp.toString();
-
+		// check length of numbers
+		if (firstNumber.length() > secondNumber.length()) {
+			tempSecondNumber = checkNumberLength(tempFirstNumber, tempSecondNumber);
 		} else {
-
-			StringBuilder tempNumber = new StringBuilder();
-			tempNumber.append(tempFirstNumber);
-			int difference = tempSecondNumber.length() - tempFirstNumber.length();
-			tempNumber = equalizeNumbers(tempNumber, difference);
-			tempFirstNumber = tempNumber.toString();
-
+			tempFirstNumber = checkNumberLength(tempSecondNumber, tempFirstNumber);
 		}
 
-		/* building the answer */
+		// building the answer
 
 		StringBuilder answer = new StringBuilder();
 		for (int i = tempFirstNumber.length() - 1; i >= 0; i--) {
@@ -65,7 +53,10 @@ public class SummingLargeNumbers {
 			}
 		}
 
-		/* answer is built in a reverse order, so its returned reversed */
+		/*
+		 * answer is built in a reverse order, so its needs to be returned in
+		 * reverse.
+		 */
 		return answer.reverse();
 
 	}
@@ -116,6 +107,25 @@ public class SummingLargeNumbers {
 		}
 		tempNumber = tempNumber.insert(0, differenceString);
 		return tempNumber;
+	}
 
+	/**
+	 * Method determing the difference between the shorter and longer number by
+	 * length.
+	 * 
+	 * @param longerNumber
+	 *            the longer number in length.
+	 * @param shorterNumber
+	 *            the shirter number in length.
+	 * @return shorterNumber, equalized with the longerNumber.
+	 */
+	private String checkNumberLength(String longerNumber, String shorterNumber) {
+
+		StringBuilder numTemp = new StringBuilder();
+		numTemp.append(shorterNumber);
+		int difference = longerNumber.length() - shorterNumber.length();
+		numTemp = equalizeNumbers(numTemp, difference);
+		shorterNumber = numTemp.toString();
+		return shorterNumber;
 	}
 }

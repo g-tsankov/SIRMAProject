@@ -1,5 +1,6 @@
 package com.sirma.itt.javacourse.intro.task2;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -16,7 +17,7 @@ final class Runner {
 	private Runner() {
 	}
 
-	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Runner.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Runner.class);
 	private static int min;
 	private static int sum;
 	private static String message;

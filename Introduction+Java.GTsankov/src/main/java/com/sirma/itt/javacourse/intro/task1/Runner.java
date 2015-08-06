@@ -2,6 +2,7 @@ package com.sirma.itt.javacourse.intro.task1;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -16,7 +17,7 @@ final class Runner {
 	private Runner() {
 	};
 
-	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Runner.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Runner.class);
 	private static int firstVariable;
 	private static int secondVariable;
 	private static Scanner scanner = new Scanner(System.in);
@@ -52,17 +53,12 @@ final class Runner {
 			try {
 
 				secondVariable = Integer.parseInt(input);
-				if (secondVariable == 0) {
-					throw new IllegalArgumentException();
-				}
 				break;
 			} catch (NumberFormatException ne) {
 				LOGGER.info("Input is not a number.");
-			} catch (IllegalArgumentException e) {
-				LOGGER.info("You can't divide by 0!");
+
 			}
 		}
-
 		GreatestCommonDivisor gcd = new GreatestCommonDivisor();
 		int result = gcd.calculate(firstVariable, secondVariable);
 

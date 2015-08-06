@@ -21,13 +21,13 @@ public class ArrayProcessing {
 	public int getMinElement(int[] array) {
 
 		/* checking for empty array */
-		if (array == null || array.length == 0) {
-			LOGGER.info("Array is empty or null");
+		if (array == null) {
+			LOGGER.info("Array is empty");
 			throw new NullPointerException("bad array");
 		}
 		int index = 0;
 		int minValue = array[0];
-		for (int i = 0; i < array.length; i++) {
+		for (int i = 1; i < array.length; i++) {
 			if (array[i] < minValue) {
 				minValue = array[i];
 				index = i;
@@ -68,18 +68,14 @@ public class ArrayProcessing {
 		if (array.length == 0) {
 			throw new StringIndexOutOfBoundsException("Can't print out an empty array");
 		}
-		String message = null;
-		StringBuilder messageBuild = new StringBuilder();
+
+		StringBuilder message = new StringBuilder();
 		LOGGER.info("The elements of the array are: ");
-		for (int i = 0; i <= (array.length - 1); i++) {
-			messageBuild.append(array[i] + ",");
+		message.append(array[0]);
+		for (int i = 1; i <= (array.length - 1); i++) {
+			message.append(" , " + array[i]);
 		}
-
-		/* its -1, because the last comma should be skipped. */
-
-		messageBuild.setLength(messageBuild.length() - 1);
-		message = messageBuild.toString();
-		return message;
+		return message.toString();
 	}
 
 }

@@ -11,7 +11,7 @@ package com.sirma.itt.javacourse.intro.task1;
 public class GreatestCommonDivisor {
 
 	/**
-	 * this is the method that calculates the Greatest Common Divisor.
+	 * Method that calculating the Greatest Common Divisor.
 	 * 
 	 * resultVariable is used as a temporary variable within the loop,
 	 * eventually taking the value of the Greatest Common Divisor when the loop
@@ -31,7 +31,9 @@ public class GreatestCommonDivisor {
 		int firstVariable = originalFirstVariable;
 		int secondVariable = originalSecondVariable;
 		int resultVariable;
-		if ((firstVariable == 0) || (secondVariable == 0)) {
+		if ((secondVariable == 0)) {
+			throw new IllegalArgumentException();
+		} else if (firstVariable == 0) {
 			resultVariable = 0;
 			return resultVariable;
 		}

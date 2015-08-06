@@ -37,9 +37,10 @@ public class FindMedian {
 		} else {
 			sum = sumRightSide - sumLeftSide;
 		}
-		for (int i = 0; i <= array.length - 1; i++) {
-			sumLeftSide = sumLeftAndRight(array, 0, i);
-			sumRightSide = sumLeftAndRight(array, i, array.length - 1);
+
+		for (int i = 2; i <= array.length - 1; i++) {
+			sumLeftSide = sumLeftSide + array[i - 1];
+			sumRightSide = sumRightSide - array[i];
 			if (sumLeftSide > sumRightSide) {
 				tempSum = sumLeftSide - sumRightSide;
 			} else {
@@ -71,13 +72,13 @@ public class FindMedian {
 		}
 		int sum = 0;
 		int tempIndex = index;
-		/* calculations for the left side */
+		// calculations for the left side
 		if (tempIndex == 0) {
 			while (tempIndex < end) {
 				sum = sum + array[tempIndex];
 				tempIndex++;
 			}
-			/* calculations for the right side */
+			// calculations for the right side
 		} else {
 			tempIndex++;
 			while (tempIndex <= end) {

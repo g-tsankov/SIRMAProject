@@ -13,7 +13,7 @@ import com.sirma.itt.javacourse.intro.task2.ArrayProcessing;
 
 public class ArrayProcessingTest {
 	@Test
-	public void test() {
+	public void standartTest() {
 		ArrayProcessing processing = new ArrayProcessing();
 		int[] arrayInput = { 1, 5, 7, 8, 4, 5, 8, 3, 6, 9, 23, -34 };
 		int actualResult = processing.getMinElement(arrayInput);
@@ -22,26 +22,18 @@ public class ArrayProcessingTest {
 	}
 
 	/*
-	 * Tests for an invalid input array
+	 * Tests for an invalid input array in getMinElement method
 	 */
 	@Test(expected = NullPointerException.class)
-	public void test2() {
+	public void invalidInput() {
 		int[] emptyArray = null;
 		ArrayProcessing processing = new ArrayProcessing();
 		processing.getMinElement(emptyArray);
 	}
 
-	/* test for empty array */
-	@Test(expected = NullPointerException.class)
-	public void test3() {
-		ArrayProcessing processing = new ArrayProcessing();
-		int[] emptyArray = new int[0];
-		processing.getMinElement(emptyArray);
-	}
-
 	/* test the sum method if it works correctly */
 	@Test
-	public void test4() {
+	public void sumMethod() {
 		ArrayProcessing processing = new ArrayProcessing();
 		int[] testArray = { 1, 6, 7, 9, 3, 5, 8, 0, 3, 6 };
 		int actualResult = processing.sum(testArray);
@@ -49,43 +41,33 @@ public class ArrayProcessingTest {
 		assertEquals(expectedResult, actualResult);
 	}
 
-	/* test for null array. */
+	/* test for null array in sum Method */
 	@Test(expected = NullPointerException.class)
-	public void test5() {
+	public void nullArray() {
 		ArrayProcessing processing = new ArrayProcessing();
 		int[] emptyArray = null;
 		processing.sum(emptyArray);
 	}
 
-	/* test for initialized, empty array. */
+	/* test for initialized, empty array in sum method */
 	@Test(expected = NullPointerException.class)
-	public void test6() {
+	public void sumNullTest() {
 		ArrayProcessing processing = new ArrayProcessing();
 		int[] emptyArray = new int[0];
 		processing.sum(emptyArray);
 	}
 
-	/* Testing the print method */
-	@Test
-	public void test7() {
-		ArrayProcessing processing = new ArrayProcessing();
-		int[] testArray = { 1, 2, 3, 5, 7, 8, 5, 4 };
-		String actualResult = processing.print(testArray);
-		String expectedResult = "1,2,3,5,7,8,5,4";
-		assertEquals(expectedResult, actualResult);
-	}
-
-	/* Testing for null array */
+	/* Testing for null array in print method */
 	@Test(expected = NullPointerException.class)
-	public void test8() {
+	public void printNullTest() {
 		ArrayProcessing processing = new ArrayProcessing();
 		int[] testArray = null;
 		processing.print(testArray);
 	}
 
-	/* testing for empty array */
+	/* testing for empty array in print method */
 	@Test(expected = StringIndexOutOfBoundsException.class)
-	public void test9() {
+	public void printEmptyTest() {
 		ArrayProcessing processing = new ArrayProcessing();
 		int[] testArray = new int[0];
 		processing.print(testArray);

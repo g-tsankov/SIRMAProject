@@ -18,7 +18,7 @@ public class GreatestCommonDivisorTest {
 	 * This test is when the firstVariable is bigger than the secondVarialbe.
 	 */
 	@Test
-	public void test() {
+	public void biggerFirstVariable() {
 		GreatestCommonDivisor gdc = new GreatestCommonDivisor();
 		int actualResult = gdc.calculate(20, 2);
 		int expected = 2;
@@ -29,7 +29,7 @@ public class GreatestCommonDivisorTest {
 	 * This test is when the secondVariable is bigger than the firstVariable.
 	 */
 	@Test
-	public void test2() {
+	public void biggerSecondVarialbe() {
 		GreatestCommonDivisor gdc = new GreatestCommonDivisor();
 		int actualResult = gdc.calculate(2, 22);
 		int expected = 2;
@@ -40,7 +40,7 @@ public class GreatestCommonDivisorTest {
 	 * This test is when both variables are equal.
 	 */
 	@Test
-	public void test3() {
+	public void equalVariables() {
 		GreatestCommonDivisor gdc = new GreatestCommonDivisor();
 		int actualResult = gdc.calculate(2, 2);
 		int expected = 2;
@@ -51,7 +51,7 @@ public class GreatestCommonDivisorTest {
 	 * This test is when firstVariable is 0.
 	 */
 	@Test
-	public void test4() {
+	public void firstIsZero() {
 		GreatestCommonDivisor gdc = new GreatestCommonDivisor();
 		int actualResult = gdc.calculate(0, 2);
 		int expected = 0;
@@ -61,23 +61,19 @@ public class GreatestCommonDivisorTest {
 	/**
 	 * This test is when secondVariable is 0.
 	 */
-	@Test
-	public void test5() {
+	@Test(expected = IllegalArgumentException.class)
+	public void secondIsZero() {
 		GreatestCommonDivisor gdc = new GreatestCommonDivisor();
-		int actualResult = gdc.calculate(35, 0);
-		int expected = 0;
-		assertEquals(expected, actualResult);
+		gdc.calculate(35, 0);
 	}
 
 	/**
 	 * This test is when both variables are 0.
 	 */
-	@Test
-	public void test6() {
+	@Test(expected = IllegalArgumentException.class)
+	public void bothZero() {
 		GreatestCommonDivisor gdc = new GreatestCommonDivisor();
-		int actualResult = gdc.calculate(0, 0);
-		int expected = 0;
-		assertEquals(expected, actualResult);
+		gdc.calculate(0, 0);
 	}
 
 	/**
@@ -85,7 +81,7 @@ public class GreatestCommonDivisorTest {
 	 * smaller than the second variable.
 	 */
 	@Test
-	public void test7() {
+	public void firstBiggerThenSecond() {
 		GreatestCommonDivisor gdc = new GreatestCommonDivisor();
 		int actualResult = gdc.calculate(8, 20);
 		int expected = 4;

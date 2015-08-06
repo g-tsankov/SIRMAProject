@@ -2,6 +2,7 @@ package com.sirma.itt.javacourse.intro.task5;
 
 import java.util.Arrays;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -11,7 +12,7 @@ import org.slf4j.LoggerFactory;
  */
 public class Runner {
 
-	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Runner.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Runner.class);
 
 	public static void main(String[] args) {
 

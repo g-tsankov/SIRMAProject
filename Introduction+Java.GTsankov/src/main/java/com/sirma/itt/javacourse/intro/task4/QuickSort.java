@@ -1,15 +1,16 @@
 package com.sirma.itt.javacourse.intro.task4;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Class realising the QuickSort algorythm.
+ * Class implementing the QuickSort algorythm.
  * 
  * @author George
  */
 public class QuickSort {
 
-	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(QuickSort.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(QuickSort.class);
 
 	/**
 	 * Partition method,chooses a pivot value that is in the middle of the

@@ -1,5 +1,6 @@
 package com.sirma.itt.javacourse.intro.task3;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -14,7 +15,7 @@ final class Runner {
 	private Runner() {
 	}
 
-	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Runner.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Runner.class);
 
 	/**
 	 * Main method for the runner.
@@ -24,7 +25,7 @@ final class Runner {
 	 */
 	public static void main(String[] args) {
 
-		int[] arrayInput = { 2, 51, 5, 7, 8, 4, 78, 4, 5, 3, 7, 8, 3, 4, 34 };
+		int[] arrayInput = { 2, 25, 5, 7, 8, 4, 78, 4, 5, 3, 7, 8, 3, 4, 34 };
 
 		FindMedian findMedian = new FindMedian();
 		int medianIndex = findMedian.findMedian(arrayInput);
