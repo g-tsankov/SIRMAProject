@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Runner class for the binary homogeneous tree.
  * 
- * @author George
+ * @author Georgi Tsankov
  */
 public class BinaryRunner {
 	private static Scanner scanner = new Scanner(System.in);

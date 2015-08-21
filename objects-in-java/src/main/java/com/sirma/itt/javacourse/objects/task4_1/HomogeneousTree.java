@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
  * Root class for the Homogeneous tree.
  * 
  * @param <T>
- * @author George
+ * @author Georgi Tsankov
  */
 public class HomogeneousTree<T> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomogeneousTree.class);
