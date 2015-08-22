@@ -13,6 +13,9 @@ public class BinaryTreeTest {
 
 	private BinaryHomogeneousTree<Integer> binaryTree;
 
+	/**
+	 * creating the tree. Calling getters for coverage purposes.
+	 */
 	@Before
 	public void createBinaryTree() {
 		binaryTree = new BinaryHomogeneousTree<>(20);
@@ -24,12 +27,11 @@ public class BinaryTreeTest {
 		binaryTree.insertNode(29);
 		binaryTree.insertNode(10);
 		binaryTree.insertNode(3);
-
+		binaryTree.getLeftChildNode().getRightChild();
 	}
 
 	/**
-	 * This test tries to add an element for the second time. It should get an
-	 * exception
+	 * add an duplicate element for the. It should get an exception
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testAddDuplicateElement() {
@@ -39,18 +41,18 @@ public class BinaryTreeTest {
 	}
 
 	/**
-	 * This test prints out the tree.
+	 * prints out the tree.
 	 */
 	@Test
 	public void testSortTree() {
 		binaryTree.printInOrder();
 		binaryTree.printPostOrder();
 		binaryTree.printPreOrder();
-		binaryTree.getLeftChildNode().getRightChild();
+
 	}
 
 	/**
-	 * This test searches for an element that exists in the tree
+	 * searches for an element that exists in the tree
 	 */
 	@Test
 	public void testFound() {
@@ -58,13 +60,16 @@ public class BinaryTreeTest {
 	}
 
 	/**
-	 * This test searches for an element that doesn't exist in the tree
+	 * searches for an element that doesn't exist in the tree
 	 */
 	@Test
 	public void testNotFound() {
 		assertTrue(!binaryTree.searchValue(2));
 	}
 
+	/**
+	 * Incorrect value insertion
+	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void setNullValue() {
 		BinaryHomogeneousTreeNode<Integer> test = new BinaryHomogeneousTreeNode<>(binaryTree.getLeftChildNode()
@@ -72,6 +77,9 @@ public class BinaryTreeTest {
 		test.setValue(null);
 	}
 
+	/**
+	 * incorrect right node insertion
+	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void insertNullNodeRight() {
 		BinaryHomogeneousTreeNode<Integer> test = new BinaryHomogeneousTreeNode<>(binaryTree.getRightChildNode()
@@ -79,6 +87,9 @@ public class BinaryTreeTest {
 		test.setRightChild(null);
 	}
 
+	/**
+	 * correct right node insertion
+	 */
 	@Test
 	public void insertCorrectRightNode() {
 		BinaryHomogeneousTreeNode<Integer> test = new BinaryHomogeneousTreeNode<>(binaryTree.getRightChildNode()
@@ -89,13 +100,19 @@ public class BinaryTreeTest {
 		assertEquals(expectedResult, actualResult);
 	}
 
+	/**
+	 * incorrect left node insertion
+	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void insertNullNodeLeft() {
 		BinaryHomogeneousTreeNode<Integer> test = new BinaryHomogeneousTreeNode<>(binaryTree.getLeftChildNode()
 				.getValue());
-		test.setRightChild(null);
+		test.setLeftChild(null);
 	}
 
+	/**
+	 * correct left node insertion
+	 */
 	@Test
 	public void insertCorrectLeftNode() {
 		BinaryHomogeneousTreeNode<Integer> test = new BinaryHomogeneousTreeNode<>(binaryTree.getLeftChildNode()
