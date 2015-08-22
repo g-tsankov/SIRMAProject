@@ -15,17 +15,24 @@ public class HeterogeneousTreeNode {
 	 * Constructor.
 	 * 
 	 * @param value
+	 *            -value to the new node
 	 */
 	public HeterogeneousTreeNode(Object value) {
+		if (value == null) {
+			throw new IllegalArgumentException("Can't insert a null value.");
+		}
 		this.value = value;
 	}
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 * 
 	 * @param value
+	 *            -value of the node to be created
 	 * @param leftChildNode
+	 *            -left node
 	 * @param rightChildNode
+	 *            -right node
 	 */
 	public HeterogeneousTreeNode(Object value, HeterogeneousTreeNode leftChildNode, HeterogeneousTreeNode rightChildNode) {
 

@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
  * @author Georgi Tsankov
  */
 public class HeterogeneousTree {
+
 	private Logger LOGGER = LoggerFactory.getLogger(HeterogeneousTree.class);
 	private HeterogeneousTreeNode root;
 
@@ -21,11 +22,14 @@ public class HeterogeneousTree {
 	}
 
 	/**
-	 * Constructor for a heterogeneous tree
+	 * Constructor for a heterogeneous tree.
 	 * 
 	 * @param value
+	 *            -value of the node
 	 * @param leftChild
+	 *            -left child node
 	 * @param rightChild
+	 *            -right child node
 	 */
 	private HeterogeneousTree(Object value, HeterogeneousTree leftChild, HeterogeneousTree rightChild) {
 		if (value == null) {
@@ -47,6 +51,16 @@ public class HeterogeneousTree {
 	}
 
 	/**
+	 * Inserting a new value in the tree.
+	 * 
+	 * @param value
+	 *            -value of the node to be inserted.
+	 */
+	public void insert(Object value) {
+		insert(value, this.getRoot());
+	}
+
+	/**
 	 * Adds new element in the heterogeneous tree.
 	 * 
 	 * @param value
@@ -54,7 +68,7 @@ public class HeterogeneousTree {
 	 * @param node
 	 *            - the recursive node
 	 */
-	public void insert(Object value, HeterogeneousTreeNode node) {
+	private void insert(Object value, HeterogeneousTreeNode node) {
 		HeterogeneousTreeNode tempNode = node;
 		if (tempNode == null) {
 			new HeterogeneousTreeNode(value, null, null);
@@ -85,6 +99,7 @@ public class HeterogeneousTree {
 	 * Method for traversing and printing a heterogeneous tree.
 	 * 
 	 * @param node
+	 *            -current node
 	 */
 	private void sortTreeInOrder(HeterogeneousTreeNode node) {
 
@@ -97,5 +112,57 @@ public class HeterogeneousTree {
 		sortTreeInOrder(node.getLeftChild());
 		// 3.Visit right child
 		sortTreeInOrder(node.getRightChild());
+	}
+
+	/**
+	 * Traverse the tree in a post-order manner.
+	 */
+	public void sortPostOrder() {
+		sortPostOrder(this.root);
+	}
+
+	/**
+	 * Traverse the tree in a post-order manner.
+	 * 
+	 * @param node
+	 *            - current node
+	 */
+	private void sortPostOrder(HeterogeneousTreeNode node) {
+		if (node == null) {
+			return;
+		}
+		// 1.get left child
+		sortPostOrder(node.getLeftChild());
+		// 2.get right child
+		sortPostOrder(node.getRightChild());
+		// 3.Print
+		LOGGER.info(node.getValue() + " ");
+	}
+
+	/**
+	 * Traverse the tree in a pre-order manner.
+	 */
+	public void sortPreOrder() {
+
+		sortPreOrder(this.root);
+
+	}
+
+	/**
+	 * Traversing the tree and printing it out in a pre-order manner.
+	 * 
+	 * @param node
+	 *            -current node
+	 */
+	private void sortPreOrder(HeterogeneousTreeNode node) {
+		if (node == null) {
+			return;
+		}
+		// 1. Visit the left child.
+		sortPreOrder(node.getLeftChild());
+		// 2. Visit the root of this subtree.
+		LOGGER.info(node.getValue() + " ");
+		// 3. Visit the right child.
+		sortPreOrder(node.getRightChild());
 	}
 }
