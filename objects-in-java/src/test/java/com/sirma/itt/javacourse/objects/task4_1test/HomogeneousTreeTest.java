@@ -2,8 +2,8 @@ package com.sirma.itt.javacourse.objects.task4_1test;
 
 import org.junit.Test;
 
-import com.sirma.itt.javacourse.objects.task4_1.HomogeneousTree;
-import com.sirma.itt.javacourse.objects.task4_1.HomogeneousTreeNode;
+import com.sirma.itt.javacourse.objects.task4a.HomogeneousTree;
+import com.sirma.itt.javacourse.objects.task4a.HomogeneousTreeNode;
 
 public class HomogeneousTreeTest {
 

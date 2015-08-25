@@ -6,8 +6,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sirma.itt.javacourse.objects.task4_2.BinaryHomogeneousTree;
-import com.sirma.itt.javacourse.objects.task4_2.BinaryHomogeneousTreeNode;
+import com.sirma.itt.javacourse.objects.task4b.BinaryHomogeneousTree;
+import com.sirma.itt.javacourse.objects.task4b.BinaryHomogeneousTreeNode;
 
 public class BinaryTreeTest {
 

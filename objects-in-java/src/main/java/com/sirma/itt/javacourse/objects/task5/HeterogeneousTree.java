@@ -89,14 +89,14 @@ public class HeterogeneousTree {
 	}
 
 	/**
-	 * Method for in order sorting a heterogeneous tree.
+	 * Sorting in a in-order manner.
 	 */
 	public void sortTreeInOrder() {
 		sortTreeInOrder(this.root);
 	}
 
 	/**
-	 * Method for traversing and printing a heterogeneous tree.
+	 * Traversing and printing a heterogeneous tree in a in-order manner.
 	 * 
 	 * @param node
 	 *            -current node
@@ -122,7 +122,7 @@ public class HeterogeneousTree {
 	}
 
 	/**
-	 * Traverse the tree in a post-order manner.
+	 * Traverse and print the tree in a post-order manner.
 	 * 
 	 * @param node
 	 *            - current node
